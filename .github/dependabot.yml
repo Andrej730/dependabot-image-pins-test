@@ -5,6 +5,9 @@ updates:
     directory: /
     schedule:
       interval: daily
+    # Override Dependabot's default 3-day cooldown.
+    cooldown:
+      default-days: 0
 
   # Dockerfiles.
   - package-ecosystem: docker
@@ -15,9 +18,15 @@ updates:
       - /docker/golang-tip
     schedule:
       interval: daily
+    # Override Dependabot's default 3-day cooldown.
+    cooldown:
+      default-days: 0
 
   # Currently bumping images is unsupported.
   - package-ecosystem: docker
     directory: /.github/workflows
     schedule:
       interval: daily
+    # Override Dependabot's default 3-day cooldown.
+    cooldown:
+      default-days: 0
