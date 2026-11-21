@@ -12,6 +12,7 @@ updates:
       - /docker/rocky9
       - /docker/rocky10
       - /docker/digest-only
+      - /docker/golang-tip
     schedule:
       interval: daily
 
