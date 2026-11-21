@@ -1,0 +1,15 @@
+name: run all
+
+on: workflow_dispatch
+
+jobs:
+  container-string:
+    uses: ./.github/workflows/container-string.yml
+  container-mapping:
+    uses: ./.github/workflows/container-mapping.yml
+  services:
+    uses: ./.github/workflows/services.yml
+  matrix:
+    uses: ./.github/workflows/matrix.yml
+  uses-docker:
+    uses: ./.github/workflows/uses-docker.yml

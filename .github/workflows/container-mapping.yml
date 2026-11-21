@@ -1,0 +1,20 @@
+name: container mapping form
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  rocky9:
+    runs-on: ubuntu-latest
+    container:
+      image: rockylinux:9@sha256:03303863808e9cd79f0c58c833db3e5f9cde9f2abe16804a267b05dc54af86e4
+    steps:
+      - run: cat /etc/os-release
+
+  rocky10:
+    runs-on: ubuntu-latest
+    container:
+      image: rockylinux/rockylinux:10@sha256:d24beedc58f79b9e0e9289fedaa4fcbcbe692b1438883a86f177fd7c51053ca8
+    steps:
+      - run: cat /etc/os-release

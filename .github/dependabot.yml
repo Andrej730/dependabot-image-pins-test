@@ -1,0 +1,22 @@
+version: 2
+updates:
+  # Currently bumping images is unsupported.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: daily
+
+  # Dockerfiles.
+  - package-ecosystem: docker
+    directories:
+      - /docker/rocky9
+      - /docker/rocky10
+      - /docker/digest-only
+    schedule:
+      interval: daily
+
+  # Currently bumping images is unsupported.
+  - package-ecosystem: docker
+    directory: /.github/workflows
+    schedule:
+      interval: daily

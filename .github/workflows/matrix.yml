@@ -1,0 +1,33 @@
+name: matrix
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  # matrix value is a plain image string
+  string:
+    runs-on: ubuntu-latest
+    container: ${{ matrix.image }}
+    strategy:
+      matrix:
+        image:
+          - rockylinux:9@sha256:03303863808e9cd79f0c58c833db3e5f9cde9f2abe16804a267b05dc54af86e4
+          - rockylinux/rockylinux:10@sha256:d24beedc58f79b9e0e9289fedaa4fcbcbe692b1438883a86f177fd7c51053ca8
+    steps:
+      - run: cat /etc/os-release
+
+  # matrix include with a container mapping (image nested under container:)
+  include:
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ matrix.container.image }}
+    strategy:
+      matrix:
+        include:
+          - container:
+              image: rockylinux:9@sha256:03303863808e9cd79f0c58c833db3e5f9cde9f2abe16804a267b05dc54af86e4
+          - container:
+              image: rockylinux/rockylinux:10@sha256:d24beedc58f79b9e0e9289fedaa4fcbcbe692b1438883a86f177fd7c51053ca8
+    steps:
+      - run: cat /etc/os-release
