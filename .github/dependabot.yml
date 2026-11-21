@@ -18,6 +18,10 @@ updates:
       - /docker/golang-tip
     schedule:
       interval: daily
+    # Stay on rockylinux:9 and only receive digest refreshes, not the 9 -> 10 bump.
+    ignore:
+      - dependency-name: "rockylinux"
+        update-types: ["version-update:semver-major"]
     # Override Dependabot's default 3-day cooldown.
     cooldown:
       default-days: 0
